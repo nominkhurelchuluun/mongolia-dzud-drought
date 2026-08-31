@@ -4,7 +4,7 @@ title: "Analysis code for Climate-Associated Livestock Mortality in Mongolia: Th
 type: software
 version: "1.0.0"
 license: MIT
-repository-code: "https://github.com/REPLACE-ME/mongolia-dzud-drought"
+repository-code: "https://github.com/nominkhurelchuluun/mongolia-dzud-drought"
 authors:
   - family-names: Khurelchuluun
     given-names: Nomin
