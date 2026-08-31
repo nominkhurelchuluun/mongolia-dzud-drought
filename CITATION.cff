@@ -4,12 +4,13 @@ title: "Analysis code for Climate-Associated Livestock Mortality in Mongolia: Th
 type: software
 version: "1.0.0"
 license: MIT
-repository-code: "https://github.com/REPLACE-ME/mongolia-dzud-drought"
+repository-code: "https://github.com/nominkhurelchuluun/mongolia-dzud-drought"
 authors:
   - family-names: Khurelchuluun
     given-names: Nomin
     affiliation: "Tree-Ring Laboratory, Lamont-Doherty Earth Observatory of Columbia University"
     email: nk3126@columbia.edu
+    orcid: "https://orcid.org/0009-0006-7688-8861"
   - family-names: Leland
     given-names: Caroline
     affiliation: "Department of Chemistry and Environmental Science, William Paterson University"
