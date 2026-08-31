@@ -1,12 +1,8 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-.scratch/
 .DS_Store
-.env
-.venv/
+.scratch/
 
 data/raw/*
 !data/raw/README.md
-
-figures/*.pdf

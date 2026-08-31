@@ -43,9 +43,9 @@ instead, or drop those two lines from `requirements.txt` and skip notebook 01.
 | Notebook | Figures | Tables | Reads |
 | --- | --- | --- | --- |
 | `01_data_preparation.ipynb` | — | — | `data/raw/` only |
-| `02_climate_trends.ipynb` | 5, S3 | S6 source values | `data/processed/` |
-| `03_mortality_analysis.ipynb` | 2, 3, 4, 6, 7, S2 | S3, S7 | `data/processed/` |
-| `04_interaction_models.ipynb` | 8, S1 | S1, S2, S4 | `data/processed/` |
+| `02_climate_trends.ipynb` | 5, S1 | S6 source values | `data/processed/` |
+| `03_mortality_analysis.ipynb` | 2, 3, 4, 6, 7 | S3, S7 | `data/processed/` |
+| `04_interaction_models.ipynb` | 8, S2 | S1, S2, S4 | `data/processed/` |
 | `05_spatial_analysis.ipynb` | 9 | S5, S6 | `data/processed/` |
 
 Figure 1, the conceptual framework panel, was drawn in BioRender and is not
@@ -63,9 +63,8 @@ Output filenames:
 | `figure_07_drought_and_species_mortality.pdf` | Figure 7 | 03 |
 | `figure_08_drought_cold_heatmap.pdf` | Figure 8 | 04 |
 | `figure_09_drought_sensitivity_map.pdf` | Figure 9 | 05 |
-| `figure_S01_leave_one_year_out.pdf` | Figure S1 | 04 |
-| `figure_S02_quarterly_losses.pdf` | Figure S2 | 03 |
-| `figure_S03_spei3_trends_1950_2024.pdf` | Figure S3 | 02 |
+| `figure_S01_spei3_trends_1950_2024.pdf` | Figure S1 | 02 |
+| `figure_S02_leave_one_year_out.pdf` | Figure S2 | 04 |
 
 ## Reproducing from raw data
 
@@ -103,7 +102,7 @@ path is hardcoded anywhere else.
 
 `src/data_loading.py` holds the shared matplotlib defaults:
 
-- Okabe–Ito colourblind-safe palette, exposed as `OKABE_ITO` and
+- Okabe-Ito colourblind-safe palette, exposed as `OKABE_ITO` and
   `SPECIES_COLORS`
 - `pdf.fonttype = 42` and `ps.fonttype = 42`, so TrueType fonts embed as AGU
   requires

@@ -111,15 +111,6 @@ if "Aimag" in mortality.columns:
     report(PASS if len(aimags) == 21 else WARN,
            f"{len(aimags)} distinct aimags", ", ".join(aimags))
 
-quarter_candidates = [c for c in mortality.columns
-                      if any(c.lower().startswith(f"{q} ") or c.lower() == q
-                             for q in ("i", "ii", "iii", "iv"))]
-if quarter_candidates:
-    report(PASS, "cumulative quarterly columns found", quarter_candidates)
-else:
-    report(WARN, "no cumulative quarterly columns",
-           "Figure S2 cannot be rebuilt from this workbook")
-
 if len(detected) == 3:
     sample = mortality.dropna(subset=list(detected.values())).head(3)
     print("\nfirst rows of the detected columns:")
@@ -204,10 +195,16 @@ if spei3_members:
         report(PASS, "filename dates parse",
                f"{min(years)}-{max(years)}, months {min(months)}-{max(months)}, "
                f"{len(spei3_members)} files")
-        expected = (max(years) - min(years) + 1) * 12
-        if len(spei3_members) < expected:
-            report(WARN, f"expected about {expected} monthly files",
-                   f"found {len(spei3_members)}")
+        in_window = [p for p in parsed
+                     if dl.SPEI_START <= p[0] <= dl.SPEI_END]
+        expected = (dl.SPEI_END - dl.SPEI_START + 1) * 12
+        report(PASS if len(in_window) == expected else WARN,
+               f"{len(in_window)} files inside {dl.SPEI_START}-{dl.SPEI_END}",
+               f"expected {expected}; "
+               f"{len(spei3_members) - len(in_window)} files fall outside the "
+               "analysis window and are filtered out by notebook 01")
+
+    report(PASS, "netcdf engine", dl.netcdf_engine())
 
     files = dl.extract_spei_archive()
     sample = dl.read_spei_months(files[:1])

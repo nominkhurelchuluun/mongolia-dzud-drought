@@ -12,7 +12,6 @@ Run notebook 01 once against a populated `data/raw/` to generate them.
 | `mortality_panel.csv` | 01 §7 | 03, 04, 05 | The analysis panel. 21 aimags × 33 years = 693 rows. Species rates, `All`, `All_SFU`, `SPEI_PrevSummer`, `SPEI_PrevSummer_point`, `Temp_Winter`, `Temp_Winter_Z_study`, `Temp_Winter_Z_climate`. |
 | `mortality_rates_aimag.csv` | 01 §1 | 01 §7 | Aimag-year mortality rates before the climate merge. |
 | `livestock_losses_national_annual.csv` | 01 §2 | 03 | National deaths by species and year, million head. |
-| `livestock_losses_national_quarterly.csv` | 01 §2 | 03 | National deaths by quarter, 1998–2024. Written only if the mortality workbook carries cumulative quarterly columns. |
 | `livestock_population_national_species.csv` | 01 §3 | 03 | National head counts by species, plus `Headcount` and `SFU_units`. |
 | `livestock_population_national_total.csv` | 01 §3 | 03 | Reported national total with year-over-year change. |
 | `livestock_population_aimag_species.csv` | 01 §3 | — | Aimag-level populations by species. Not used by any manuscript figure; retained because reviewers commonly ask for it. |
