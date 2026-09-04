@@ -35,7 +35,7 @@ SCRATCH_DIR = Path(os.environ.get("MONGOLIA_DZUD_SCRATCH", REPO_ROOT / ".scratch
 RAW_FILES = {
     "mortality": "mongolia_mortality_rates.xlsx",
     "population": "types_livestock_aimag.xlsm",
-    "aimags": "mongolia.prefectures.geojson",
+    "aimags": "mongolia_adm1_geoboundaries.geojson",
     "t2m_grib": "era5_monthly_t2m_mongolia_1950_2024.grib",
     "spei_zip": "era5_drought_spei3_mongolia_1950_2024.zip",
 }
@@ -456,7 +456,8 @@ def load_aimag_boundaries(dissolve=True):
     if not source.exists():
         source = raw_path("aimags")
     frame = gpd.read_file(source)
-    name_col = "Aimag" if "Aimag" in frame.columns else "prefecture"
+    name_col = next(c for c in ("Aimag", "shapeName", "prefecture")
+                if c in frame.columns)
     frame["Aimag"] = frame[name_col].replace(RENAME_GEO).astype(str).str.strip()
     frame = frame[~frame["Aimag"].isin(NON_AIMAG_UNITS)]
     frame = frame[["Aimag", "geometry"]]
