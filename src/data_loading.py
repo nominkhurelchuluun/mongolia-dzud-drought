@@ -65,6 +65,8 @@ SFU_BY_NAME = {SPECIES_LABELS[k]: v for k, v in SFU_WEIGHTS.items()}
 SFU_BY_SPECIES = {k.lower(): v for k, v in SFU_BY_NAME.items()}
 
 RENAME_GEO = {
+    "GoviAltai": "Govi-Altai",
+    "uvs": "Uvs",
     "Bayan-Ölgii": "Bayan-Ulgii",
     "Hovsgel": "Khuvsgul",
     "Sükhbaatar": "Sukhbaatar",
